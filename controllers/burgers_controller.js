@@ -4,7 +4,15 @@ var burger = require("../models/burger");
 var router = express.Router();
 
 //HTML ROUTES
-router.get("/", function (req, res) {});
+router.get("/", function (req, res) {
+  burger.all(function (data) {
+    var _data = {
+      burgers: data,
+    };
+    console.log(_data);
+    res.render("index", _data);
+  });
+});
 
 //API ROUTES
 router.get("/api/burgers", function (req, res) {});
