@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Eat - Da - Burger</h1>
+        <p class="lead">create a burger or devour one.</p>
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label for="staticInstruction" class="sr-only">Instructions</label>
+                <input type="text" readonly class="form-control-plaintext" id="staticInstructions"
+                    value="Add a burger here!">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="burgername" class="sr-only">Burger</label>
+                <input type="text" class="form-control" id="burger-name" placeholder="Big Burger">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Add</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div id="not-devoured-burgers" class="col-6 col-md-4">
+            <ul class="list-group">
+                {{> burger/burger-block }}
+            </ul>
+        </div>
+        <div id="devoured-burgers" class="col-6 col-md-4">
+            <ul class="list-group">
+                {{> burger/burger-block }}
+            </ul>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

@@ -15,9 +15,34 @@ router.get("/", function (req, res) {
 });
 
 //API ROUTES
-router.get("/api/burgers", function (req, res) {});
-router.post("/api/create/:newburger", function (req, res) {});
-router.post("/api/devour/:burger", function (req, res) {});
+router.post("/api/create/:burger", function (req, res) {
+  burger.create(
+    {
+      burger_name: req.params.burger,
+    },
+    function (data) {
+      console.log(data);
+      res.json(data);
+    }
+  );
+});
+
+router.post("/api/devour/:burger", function (req, res) {
+  burger.update(
+    {
+      devoured: "true",
+    },
+    { burger_name: req.params.burger },
+    function (data) {
+      if (data.changedRows == 0) {
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
+    }
+  );
+});
 
 //Export
 module.exports = router;
