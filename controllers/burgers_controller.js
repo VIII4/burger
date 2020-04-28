@@ -27,12 +27,12 @@ router.post("/api/create/:burger", function (req, res) {
   );
 });
 
-router.post("/api/devour/:burger", function (req, res) {
+router.put("/api/devour/:id", function (req, res) {
   burger.update(
     {
       devoured: "true",
     },
-    { burger_name: req.params.burger },
+    { id: req.params.id },
     function (data) {
       if (data.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
