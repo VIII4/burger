@@ -17,9 +17,10 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div id="not-devoured-burgers" class="col-6 col-md-4">
+    <div class="row row-cols-md-2 row-cols-1 p-2 mx-auto">
+
+        <div id="not-devoured-burgers" class="col">
+            <h3>Burgers</h3>
             <ul class="list-group">
                 {{#each burgers}}
                 {{#unless devoured}}
@@ -29,7 +30,8 @@
 
             </ul>
         </div>
-        <div id="devoured-burgers" class="col-6 col-md-4">
+        <div id="devoured-burgers" class="col">
+            <h3>Devoured Burgers</h3>
             <ul class="list-group">
                 {{#each burgers}}
                 {{#if devoured}}
@@ -40,6 +42,6 @@
                 {{/each}}
             </ul>
         </div>
-        <div class="col"></div>
+
     </div>
 </div>

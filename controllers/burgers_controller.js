@@ -15,10 +15,12 @@ router.get("/", function (req, res) {
 });
 
 //API ROUTES
-router.post("/api/create/:burger", function (req, res) {
+router.post("/api/create/", function (req, res) {
+  console.log(req.body);
+
   burger.create(
     {
-      burger_name: req.params.burger,
+      burger_name: req.body.name,
     },
     function (data) {
       console.log(data);
